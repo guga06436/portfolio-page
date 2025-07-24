@@ -1,0 +1,115 @@
+/* === 1. Base Navbar Styles (Desktop First) === */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+  background-color: var(--color-background-secondary);
+  height: var(--navbar-height);
+  font-family: 'Fira Code', monospace;
+}
+
+.navbar-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-white);
+  text-decoration: none;
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+.navbar-link {
+  color: var(--color-text-primary);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.3s ease-out;
+}
+
+/* === 2. Elegant Hover Effect === */
+.navbar-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  transform-origin: bottom center;
+  transition: transform 0.3s ease-out;
+}
+
+.navbar-link:hover {
+  color: var(--color-white);
+}
+
+.navbar-title:hover {
+  color: var(--color-primary);
+}
+
+.navbar-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom center;
+}
+
+/* === 3. Responsive Design (Mobile Menu) === */
+.navbar-toggle {
+  display: none;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  transition: all 0.3s ease-in-out;
+  background-color: var(--color-white);
+}
+
+/* Media query for mobile screens */
+@media (max-width: 1200px) {
+  .navbar-menu {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: var(--navbar-height);
+    left: 0;
+    background-color: var(--color-background-secondary);
+    padding: 1rem 0;
+  }
+
+  .navbar-menu.is-active {
+    display: flex;
+  }
+
+  .navbar-item {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .navbar-toggle {
+    display: block;
+  }
+
+  .navbar-toggle.is-active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .navbar-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .navbar-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+}
