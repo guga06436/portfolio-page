@@ -1,0 +1,213 @@
+/* === Main Section Layout === */
+.about-section {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  align-items: center;
+  gap: 5rem;
+  min-height: 100vh;
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  padding: 6rem 8%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* === Left Side: Image Container === */
+.about-image-container {
+  position: relative;
+  display: inline-block;
+  border-radius: 20px;
+  padding: 5px;
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--color-primary), #0D47A1);
+  transition: transform 0.3s ease-in-out;
+}
+.about-image-container:hover {
+  transform: scale(1.03) rotate(1deg);
+}
+.about-image {
+  display: block;
+  width: 100%;
+  border-radius: 16px;
+}
+.about-image-container::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.15) 50%, transparent 60%);
+  transform: translateX(-150%);
+  animation: laminar-sheen 3.5s infinite linear;
+}
+@keyframes laminar-sheen {
+  0% { transform: translateX(-150%) skewX(-25deg); }
+  100% { transform: translateX(150%) skewX(-25deg); }
+}
+
+/* === Right Side: Content === */
+.about-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.about-intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.about-main-title {
+  /* Fluid font size that scales with the viewport */
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.about-intro-paragraph {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.about-cards-grid {
+  display: grid;
+  /* This automatically fits as many columns as possible with a 320px minimum width */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.column-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.about-card {
+  background-color: var(--color-background-secondary);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  padding: 1.5rem;
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-primary);
+}
+
+.about-card h4 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-text-primary);
+  margin: 0 0 0.5rem 0;
+  overflow-wrap: break-word;
+}
+
+.about-card p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+/* === Education Card Specifics === */
+.education-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.education-card .university {
+  margin-bottom: 1.5rem;
+  flex-grow: 1; /* Pushes footer down */
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.8rem;
+}
+
+.card-footer span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cgpa-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: rgba(97, 218, 251, 0.1);
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* === Resume Card Specifics === */
+.resume-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.download-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    background: linear-gradient(90deg, #0D47A1, var(--color-primary));
+    color: var(--color-white);
+    padding: 0.75rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(97, 218, 251, 0.25);
+    color: var(--color-white);
+}
+
+/* === Responsive Adjustments === */
+
+/* Stacks the main section on tablet and smaller screens */
+@media (max-width: 1024px) {
+  .about-section {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 6rem 5%;
+    gap: 3rem; /* Reduced gap between image and content */
+  }
+  .about-image-container {
+    max-width: 400px;
+    margin: 0 auto; /* The gap property now handles the spacing */
+  }
+}
+
+/* On medium screens where cards are likely stacked, adjust their gap */
+@media (max-width: 768px) {
+  .about-cards-grid {
+    gap: 4rem; /* Increased space between stacked cards */
+  }
+}
+
+/* On very small mobile screens, reduce padding */
+@media (max-width: 480px) {
+  .about-section {
+    padding: 4rem 1.5rem;
+  }
+}

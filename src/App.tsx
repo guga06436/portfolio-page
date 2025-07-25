@@ -2,6 +2,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import resumeFile from './assets/files/resume_gustavo_br.pdf';
 import './App.css'
+import About from './components/About';
 
 function App() {
 
@@ -29,7 +30,18 @@ function App() {
           github="https://github.com/guga06436"
           resume={resumeFile} 
         />
-        {/* Other sections like About, Projects, etc. go here */}
+        <About
+          introParagraph="I build innovative, data-driven solutions by blending expertise in Data Engineering, Full Stack Development, and AI, specializing from automated data pipelines to scalable web applications."
+          education={{
+            degree: 'Bachelor in Computer Science',
+            university: 'Federal University of Paraíba (UFPB)',
+            dates: 'Oct 2020 - Jul 2025',
+            location: 'João Pessoa, Brazil',
+          }}
+          resume={{
+            link: resumeFile
+          }}
+        />
       </main>
     </>
   )
