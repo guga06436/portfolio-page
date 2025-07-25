@@ -7,13 +7,17 @@
   background-color: var(--color-background-secondary);
   height: var(--navbar-height);
   font-family: 'Fira Code', monospace;
+  /* Add z-index to ensure the navbar is always on top of other content */
+  z-index: 1000;
 }
 
+/* === 2. Elegant Hover Effect === */
 .navbar-title {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-white);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .navbar-menu {
@@ -21,6 +25,8 @@
   align-items: center;
   list-style: none;
   gap: 2rem;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar-link {
@@ -33,7 +39,6 @@
   transition: color 0.3s ease-out;
 }
 
-/* === 2. Elegant Hover Effect === */
 .navbar-link::after {
   content: '';
   position: absolute;
@@ -111,5 +116,16 @@
   }
   .navbar-toggle.is-active .bar:nth-child(3) {
     transform: translateY(-8px) rotate(-45deg);
+  }
+}
+
+/* === 4. Fixed Desktop Navbar === */
+/* This rule applies only to screens wider than the mobile breakpoint */
+@media (min-width: 1201px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
   }
 }
