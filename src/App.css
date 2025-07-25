@@ -61,20 +61,9 @@ a:hover {
 }
 
 /* === 5. Layout & Utility Classes === */
-
-/* Sticky navbar */
-.navbar-fixed {
-  position: sticky;
-  top: 0;
-  width: 100%;
-  z-index: 1000;
-  background-color: var(--color-background-secondary);
-  height: var(--navbar-height);
-}
-
 /* Ensures content is not hidden behind the navbar */
 .main-content {
-  padding-top: var(--navbar-height);
+  padding-top: 0;
 }
 
 /* Section container for centered content */

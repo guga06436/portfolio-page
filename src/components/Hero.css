@@ -1,0 +1,161 @@
+/* === 1. Hero Section Container === */
+.hero-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - var(--navbar-height));
+  width: 100%;
+  position: relative;
+  background: #121212;
+  background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
+}
+
+/* === 2. Floating Box & Glassmorphism === */
+.hero-box {
+  padding: 2.5rem 3rem;
+  border-radius: 1.5rem;
+  text-align: center;
+  
+  /* The Glass Effect */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  /* The Floating Animation */
+  animation: floatAnimation 6s ease-in-out infinite;
+}
+
+/* === 3. Typography & Content Styling === */
+.hero-name {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg, var(--color-white), var(--color-primary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-title {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  margin: 0.5rem 0 1.5rem 0;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  color: var(--color-text-secondary);
+  margin-bottom: 2rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* === 4. Action Buttons === */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.social-button, .resume-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  border-radius: 50%; /* Makes the social buttons circular */
+  transition: all 0.3s ease;
+}
+
+.social-button {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-text-primary);
+}
+
+.social-button:hover {
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  transform: translateY(-3px);
+}
+
+.resume-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-primary);
+  color: var(--color-background);
+  border-radius: 50px; /* Pill shape */
+  font-weight: 500;
+  gap: 0.5rem;
+}
+
+.resume-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(97, 218, 251, 0.2);
+}
+
+/* === 5. Animations === */
+@keyframes floatAnimation {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0); }
+}
+
+/* === 6. Scroll Down Indicator === */
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 2rem;
+}
+
+.mouse {
+  width: 30px;
+  height: 50px;
+  border: 2px solid var(--color-text-secondary);
+  border-radius: 60px;
+  position: relative;
+}
+
+.scroll-wheel {
+  width: 4px;
+  height: 10px;
+  background: var(--color-text-secondary);
+  border-radius: 2px;
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: scrollAnimation 2s ease-in-out infinite;
+}
+
+@keyframes scrollAnimation {
+  0% { transform: translate(-50%, 0); opacity: 1; }
+  50% { transform: translate(-50%, 15px); opacity: 0; }
+  100% { transform: translate(-50%, 0); opacity: 1; }
+}
+
+/* === 7. Responsiveness === */
+@media (max-width: 768px) {
+  .hero-box {
+    padding: 2rem 1.5rem;
+    width: 90%;
+  }
+  .hero-name {
+    font-size: 2.5rem;
+  }
+  .hero-title {
+    font-size: 1rem;
+  }
+  .contact-info {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+}
