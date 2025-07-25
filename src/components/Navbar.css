@@ -88,11 +88,12 @@
     display: none;
     flex-direction: column;
     width: 100%;
-    position: absolute;
+    position: absolute; /* This is the correct positioning */
     top: var(--navbar-height);
     left: 0;
     background-color: var(--color-background-secondary);
     padding: 1rem 0;
+    z-index: 999; /* Will be layered below the main navbar (z-index: 1000) */
   }
 
   .navbar-menu.is-active {
