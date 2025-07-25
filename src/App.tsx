@@ -20,28 +20,31 @@ function App() {
         title={{ text: 'Gustavo Montenegro | Portfolio' }}
         options={{ items: menuItems }}
       />
-      <main className="main-content">
-        <Hero
-          heroName="Gustavo Montenegro"
-          heroTitle="Data Analyst/Engineer | Full Stack Developer"
-          location="João Pessoa, Brazil"
-          email="gustavommchaves@hotmail.com"
-          //linkedin="https://www.linkedin.com/in/your-profile"
-          github="https://github.com/guga06436"
-          resume={resumeFile} 
-        />
-        <About
-          introParagraph="I build innovative, data-driven solutions by blending expertise in Data Engineering, Full Stack Development, and AI, specializing from automated data pipelines to scalable web applications."
-          education={{
-            degree: 'Bachelor in Computer Science',
-            university: 'Federal University of Paraíba (UFPB)',
-            dates: 'Oct 2020 - Jul 2025',
-            location: 'João Pessoa, Brazil',
-          }}
-          resume={{
-            link: resumeFile
-          }}
-        />
+      <main className="main-content scroll-container">
+        <section id="hero" className="scroll-section">
+          <Hero
+            heroName="Gustavo Montenegro"
+            heroTitle="Data Analyst/Engineer | Full Stack Developer"
+            location="João Pessoa, Brazil"
+            email="gustavommchaves@hotmail.com"
+            github="https://github.com/guga06436"
+            resume={resumeFile} 
+          />
+        </section>
+        <section id="about" className="scroll-section">
+          <About
+            introParagraph="I build innovative, data-driven solutions by blending expertise in Data Engineering, Full Stack Development, and AI, specializing from automated data pipelines to scalable web applications."
+            education={{
+              degree: 'Bachelor in Computer Science',
+              university: 'Federal University of Paraíba (UFPB)',
+              dates: 'Oct 2020 - Jul 2025',
+              location: 'João Pessoa, Brazil',
+            }}
+            resume={{
+              link: resumeFile
+            }}
+          />
+        </section>
       </main>
     </>
   )

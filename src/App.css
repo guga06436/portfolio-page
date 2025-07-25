@@ -61,7 +61,6 @@ a:hover {
 }
 
 /* === 5. Layout & Utility Classes === */
-/* Ensures content is not hidden behind the navbar */
 .main-content {
   padding-top: 0;
 }
@@ -74,4 +73,43 @@ a:hover {
   margin-right: auto;
   padding-left: 2rem;
   padding-right: 2rem;
+}
+
+.scroll-container {
+  /* No scroll-snap properties by default */
+  width: 100%;
+  height: calc(100vh - var(--navbar-height));
+}
+
+.scroll-section {
+  /* Let content determine height on mobile */
+  height: 100vh;
+  padding: 0;
+}
+
+/* --- Desktop Styles (screens wider than 768px) --- */
+/* The @media query applies these styles only on larger screens. */
+
+@media (min-width: 768px) {
+  .scroll-container {
+    /* Enable scroll-snapping on desktop */
+    scroll-snap-type: y mandatory;
+    overflow-y: scroll;
+    height: 100vh;
+    padding: 0;
+  }
+
+  .scroll-section {
+    /* Set sections to full height for snapping */
+    height: 100vh;
+
+    /* Align items to the snap point */
+    scroll-snap-align: start;
+    
+    /* Center content within the full-height section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }
