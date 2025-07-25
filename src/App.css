@@ -89,8 +89,7 @@ a:hover {
 
 /* --- Desktop Styles (screens wider than 768px) --- */
 /* The @media query applies these styles only on larger screens. */
-
-@media (min-width: 768px) {
+@media (min-width: 1201px) {
   .scroll-container {
     /* Enable scroll-snapping on desktop */
     scroll-snap-type: y mandatory;
@@ -111,5 +110,22 @@ a:hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+}
+
+/* Add this media query to adjust hero height specifically on mobile */
+@media (max-width: 1200px) {
+  #hero {
+    /* Set height to viewport height minus the navbar's height */
+    height: calc(100vh - var(--navbar-height));
+
+    /* Ensure content is centered vertically in the available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  #about.scroll-section {
+    height: auto;
   }
 }

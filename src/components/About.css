@@ -4,7 +4,7 @@
   grid-template-columns: 0.8fr 1.2fr;
   align-items: center;
   gap: 5rem;
-  height: calc(100vh - var(--navbar-height));
+  height: auto;
   background-color: var(--color-background);
   color: var(--color-text-primary);
   padding: 6rem 8%;
@@ -188,7 +188,6 @@
 @media (max-width: 1024px) {
   .about-section {
     grid-template-columns: 1fr;
-    height: auto;
     padding: 6rem 5%;
     gap: 3rem; /* Reduced gap between image and content */
   }
@@ -199,7 +198,7 @@
 }
 
 /* On medium screens where cards are likely stacked, adjust their gap */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .about-cards-grid {
     gap: 4rem; /* Increased space between stacked cards */
   }

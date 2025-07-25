@@ -19,6 +19,11 @@ const Navbar: React.FC<NavbarProps> = ({ title, options }) => {
   // State to control the mobile menu's visibility
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+  // A function to handle closing the menu
+  const handleLinkClick = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <nav className="navbar navbar-fixed">
       {/* Title of the navbar */}
@@ -41,7 +46,7 @@ const Navbar: React.FC<NavbarProps> = ({ title, options }) => {
       <ul className={`navbar-menu ${isMenuOpen ? 'is-active' : ''}`}>
         {options.items.map((item) => (
           <li key={item.name} className="navbar-item">
-            <a href={item.link} className="navbar-link">
+            <a href={item.link} className="navbar-link" onClick={handleLinkClick}>
               {item.name}
             </a>
           </li>
