@@ -4,7 +4,7 @@
   grid-template-columns: 0.8fr 1.2fr;
   align-items: center;
   gap: 5rem;
-  height: auto;
+  min-height: calc(100vh - var(--navbar-height));
   background-color: var(--color-background);
   color: var(--color-text-primary);
   padding: 6rem 8%;
@@ -123,7 +123,7 @@
 
 .education-card .university {
   margin-bottom: 1.5rem;
-  flex-grow: 1; /* Pushes footer down */
+  flex-grow: 1;
 }
 
 .card-footer {
@@ -189,18 +189,18 @@
   .about-section {
     grid-template-columns: 1fr;
     padding: 6rem 5%;
-    gap: 3rem; /* Reduced gap between image and content */
+    gap: 3rem;
   }
   .about-image-container {
     max-width: 400px;
-    margin: 0 auto; /* The gap property now handles the spacing */
+    margin: 0 auto;
   }
 }
 
 /* On medium screens where cards are likely stacked, adjust their gap */
 @media (max-width: 1024px) {
   .about-cards-grid {
-    gap: 4rem; /* Increased space between stacked cards */
+    gap: 4rem;
   }
 }
 
@@ -208,5 +208,13 @@
 @media (max-width: 480px) {
   .about-section {
     padding: 4rem 1.5rem;
+  }
+}
+
+/* For very large screens (e.g., > 1600px), reduce the image column's size */
+@media (min-width: 1600px) {
+  .about-section {
+    grid-template-columns: 0.6fr 1.4fr;
+    gap: 6rem;
   }
 }

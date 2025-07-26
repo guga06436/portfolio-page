@@ -1,12 +1,9 @@
 import React from 'react';
-import './About.css';
-import aboutImage from '../assets/images/about.png';
-// Import the necessary icons
 import { FiDownload, FiCalendar, FiMapPin } from 'react-icons/fi';
 import { FaGraduationCap } from 'react-icons/fa';
 import { HiOutlineDocumentText } from 'react-icons/hi';
+import './About.css';
 
-// The props interface is updated for the new content structure
 interface AboutProps {
   introParagraph: string;
   education: {
@@ -18,17 +15,16 @@ interface AboutProps {
   resume: {
     link: string;
   };
+  imageSrc: string;
 }
 
-const About: React.FC<AboutProps> = ({ introParagraph, education, resume }) => {
+const About: React.FC<AboutProps> = ({ introParagraph, education, resume, imageSrc }) => {
   return (
     <section id="about" className="about-section">
-      {/* This container still handles the image effects */}
       <div className="about-image-container">
-        <img src={aboutImage} alt="Developer portrait" className="about-image" />
+        <img src={imageSrc} alt="Developer portrait" className="about-image" />
       </div>
 
-      {/* The content area is completely restructured */}
       <div className="about-content">
         <div className="about-intro">
           <h2 className="about-main-title">About Me</h2>
