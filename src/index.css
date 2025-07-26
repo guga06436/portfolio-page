@@ -66,3 +66,16 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+/* === Anchor Link Scrolling Fix === */
+@media (min-width: 1201px) {
+  html {
+    /* Offset the scroll position by the height of the fixed navbar.
+      This uses the same variable you defined for your navbar's height.
+    */
+    scroll-padding-top: var(--navbar-height);
+
+    /* Optional but recommended: Add a smooth scrolling effect for a better UX ✨ */
+    scroll-behavior: smooth;
+  }
+}
