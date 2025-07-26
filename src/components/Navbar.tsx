@@ -27,7 +27,7 @@ const Navbar: React.FC<NavbarProps> = ({ title, options }) => {
   return (
     <nav className="navbar navbar-fixed">
       {/* Title of the navbar */}
-      <a href="/" className="navbar-title">
+      <a href="#" className="navbar-title">
         {title.text}
       </a>
 
