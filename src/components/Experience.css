@@ -1,0 +1,200 @@
+/* === 1. Main Section Layout === */
+.experience-section {
+  width: 100%;
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  background-color: #121212;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.experience-header {
+  text-align: center;
+  margin-bottom: 2.5rem; 
+  max-width: 800px;
+}
+
+.experience-main-title {
+  font-size: clamp(2rem, 5vw, 2.5rem); 
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem; 
+}
+
+.experience-subtitle {
+  font-size: 0.9rem; 
+  line-height: 1.5;
+  color: #A7A7A7;
+}
+
+/* === 2. Timeline Container & Line === */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  width: 100%;
+  padding-left: 2rem;
+}
+
+.timeline-container::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background-color: #61DAFB40;
+  border-radius: 2px;
+}
+
+/* === 3. Timeline Item Styling === */
+.timeline-item {
+  position: relative;
+  padding: 1.25rem; 
+  margin-bottom: 1.5rem; 
+  background-color: #18181C;
+  border: 1px solid #61DAFB1A;
+  border-radius: 10px; 
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.timeline-item:hover {
+  border-color: #61DAFB80;
+  transform: translateY(-4px);
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -39px;
+  top: 24px;
+  width: 10px; 
+  height: 10px;
+  background-color: #61DAFB;
+  border: 2px solid #121212;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.item-role {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #EAEAEA;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.role-icon {
+  color: #61DAFB;
+}
+
+.item-company {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 0.75rem;
+  color: #A7A7A7;
+  font-size: 0.9rem;
+}
+
+.item-company a {
+  color: #A7A7A7;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.item-company a:hover {
+  color: #61DAFB;
+}
+
+.item-meta {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.8rem;
+  color: #A7A7A7;
+  margin-bottom: 1rem;
+}
+
+.item-meta span {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.item-description {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.item-description li {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: #A7A7A7;
+  margin-bottom: 0.5rem;
+  padding-left: 1.2rem;
+  position: relative;
+}
+
+.item-description li:last-child {
+  margin-bottom: 0;
+}
+
+.item-description li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #61DAFB;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+
+/* === 4. Job Type Tag Styling === */
+.job-type-tag {
+  padding: 0.2rem 0.6rem; 
+  border-radius: 10px;
+  font-size: 0.7rem; 
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.job-type-tag.full-time,
+.job-type-tag.internship { 
+  background-color: rgba(97, 218, 251, 0.1);
+  border-color: rgba(97, 218, 251, 0.5);
+  color: #61DAFB;
+}
+
+/* === 5. Responsiveness === */
+@media (max-width: 768px) {
+  .experience-section {
+    padding: 3rem 1rem;
+  }
+
+  .timeline-container {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item::before {
+    left: -31px;
+  }
+
+  .timeline-item-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
